@@ -10,7 +10,7 @@ router.get('/user/post',postsController.posts);
 router.get('/',homeController.home);
 
 
-//to direct to users.js for url /users
+//to direct to users.js for url : /users/xyz
 router.use('/users', require('./users'));
 
 //for any further routes access from here 
