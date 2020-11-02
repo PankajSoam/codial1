@@ -12,6 +12,8 @@ router.get('/',homeController.home);
 
 //to direct to users.js for url : /users/xyz
 router.use('/users', require('./users'));
+router.use('/posts',require('./posts'));
+router.use('/comments', require('./comments'));
 
 //for any further routes access from here 
 // router.use('/routerName', require('./routerfile'));

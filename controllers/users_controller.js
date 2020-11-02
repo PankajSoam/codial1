@@ -4,10 +4,24 @@ module.exports.posts = function(req,res){
         title: "posts page"
     })
 }
-module.exports.profilePage= function(req,res){
-    return res.render("profile_page",{
-        title: "profile page"
+module.exports.profile= function(req,res){
+
+    User.findById(req.params.id,function(err,user){
+        return res.render("profile_page",{
+            title: "profile page",
+            profile_user:user
+        });
     })
+    
+}
+module.exports.update= function(req,res){
+    if(req.user.id== req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body, function(err,user){
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send('unauthorized');
+    }
 }
 
 //render signup page

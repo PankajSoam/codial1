@@ -7,7 +7,8 @@ const passport = require('passport');
 const usersController = require('../controllers/users_controller');
 const { route } = require('.');
 
-router.get('/profile', passport.checkAuthentication ,usersController.profilePage);
+router.get('/profile/:id', passport.checkAuthentication ,usersController.profile);
+router.post('/update/:id',passport.checkAuthentication,usersController.update);
 
 router.get('/sign-up',usersController.signUp);
 router.get('/sign-in',usersController.signIn);
